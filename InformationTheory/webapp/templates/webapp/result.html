@@ -1,0 +1,364 @@
+        {% extends 'webapp/base.html' %}
+        {% block content %}
+        <!-- Section-->
+        {% block main_content %}
+        <section class="py-5">
+            <div class="container px-4 px-lg-5 mt-5">
+                <div class="container mb-5">
+                    <div class="row row-cols-auto d-flex justify-content-between">
+                      <div class="col">
+                        <div class="card" style="width: 18rem;">
+                            <div class="card-body">
+                                <div class="row align-items-center">
+                                    <div class="col-8">
+                                        <h4 class="text-c-green">Huffman</h4>
+                                        <h6 class="text-muted m-b-0">Used Algorithm</h6>
+                                    </div>
+                                    <div class="col-4 text-right">
+                                        <i class="bi bi-code"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                      </div>
+                      <div class="col">
+                        <div class="card" style="width: 18rem;">
+                            <div class="card-body">
+                                <div class="row align-items-center">
+                                    <div class="col-8">
+                                        <h4 class="text-c-green">{{ data.ratio }}</h4>
+                                        <h6 class="text-muted m-b-0">Compression Ratio</h6>
+                                    </div>
+                                    <div class="col-4 text-right">
+                                        <i class="bi bi-aspect-ratio"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                      </div>
+                      <div class="col">
+                            <div class="card" style="width: 18rem;">
+                                <div class="card-body">
+                                    <div class="row align-items-center">
+                                        <div class="col-8">
+                                            <h4 class="text-c-green">Hamming</h4>
+                                            <h6 class="text-muted m-b-0">ERC</h6>
+                                        </div>
+                                        <div class="col-4 text-right">
+                                            <i class="bi bi-exclamation-octagon"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="container mb-5">
+                    <div class="row mb-2">
+                        <div class="col">
+                            <div class="card">
+                                <div class="card-header bg-transparent border-success fw-bold">
+                                    <div class="d-flex align-items-center .justify-content-start">
+                                        <div class="s-2 mr-2">
+                                            <i class="bi bi-chat-square-text pull-right icon-chevron-right"></i>
+                                        </div>
+                                        <div class="s-2">
+                                            <span>Original Text</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <p class="card-text">{{data.original|linebreaksbr}}</p>
+                                </div>
+                                <div class="card-footer bg-transparent">
+                                    <div class="d-flex align-items-center .justify-content-start">
+                                        <div class="s-2 mr-2">
+                                            <span>Description</span>
+                                        </div>
+                                        <div class="s-2 rot_object">
+                                            <i class="bi bi-chevron-compact-up pull-right icon-chevron-right"></i>
+                                        </div>
+                                    </div>
+                                    <div class="desc">Text that you entered</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mb-2">
+                        <div class="col">
+                            <div class="card">
+                                <div class="card-header bg-transparent border-success fw-bold">
+                                    <div class="d-flex align-items-center .justify-content-start">
+                                        <div class="s-2 mr-2">
+                                            <i class="bi bi-chat-square-text pull-right icon-chevron-right"></i>
+                                        </div>
+                                        <div class="s-2">
+                                            <span>Encrypted Text</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <p class="card-text">{{data.encrypted_text}}</p>
+                                </div>
+                                <div class="card-footer bg-transparent">
+                                    <div class="d-flex align-items-center .justify-content-start">
+                                        <div class="s-2 mr-2">
+                                            <span>Description</span>
+                                        </div>
+                                        <div class="s-2 rot_object">
+                                            <i class="bi bi-chevron-compact-up pull-right icon-chevron-right"></i>
+                                        </div>
+                                    </div>
+                                    <div class="desc">Encrypted text using RSA</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mb-2">
+                        <div class="col">
+                            <div class="card">
+                                <div class="card-header bg-transparent border-success fw-bold">
+                                    <div class="d-flex align-items-center .justify-content-start">
+                                        <div class="s-2 mr-2">
+                                            <i class="bi bi-file-lock pull-right icon-chevron-right"></i>
+                                        </div>
+                                        <div class="s-2">
+                                            <span>Encoded Text</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <p class="card-text">{{data.encoded}}</p>
+                                </div>
+                                <div class="card-footer bg-transparent">
+                                    <div class="d-flex align-items-center .justify-content-start">
+                                        <div class="s-2 mr-2">
+                                            <span>Description</span>
+                                        </div>
+                                        <div class="s-2 rot_object">
+                                            <i class="bi bi-chevron-compact-up pull-right icon-chevron-right"></i>
+                                        </div>
+                                    </div>
+                                    <div class="desc">Encoding of the text with Huffman algorithm using probabilities</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mb-2">
+                        <div class="col-6">
+                            <div class="card">
+                                <div class="card-header bg-transparent border-success fw-bold">
+                                    <div class="d-flex align-items-center .justify-content-start">
+                                        <div class="s-2 mr-2">
+                                            <i class="bi bi-plus-circle pull-right icon-chevron-right"></i>
+                                        </div>
+                                        <div class="s-2">
+                                            <span>Encoded Text with parity bits</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <p class="card-text">{{data.par_text}}</p>
+                                </div>
+                                <div class="card-footer bg-transparent">
+                                    <div class="d-flex align-items-center .justify-content-start">
+                                        <div class="s-2 mr-2">
+                                            <span>Description</span>
+                                        </div>
+                                        <div class="s-2 rot_object">
+                                            <i class="bi bi-chevron-compact-up pull-right icon-chevron-right"></i>
+                                        </div>
+                                    </div>
+                                    <div class="desc">Encoding by using Hamming code (7, 3), 4 data 3 additional bits</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="card">
+                                <div class="card-header bg-transparent border-success fw-bold">
+                                    <div class="d-flex align-items-center .justify-content-start">
+                                        <div class="s-2 mr-2">
+                                            <i class="bi bi-x-circle pull-right icon-chevron-right"></i>
+                                        </div>
+                                        <div class="s-2">
+                                            <span>Encoded Text with error bits</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <p class="card-text">{{data.error_text}}</p>
+                                </div>
+                                <div class="card-footer bg-transparent">
+                                    <div class="d-flex align-items-center .justify-content-start">
+                                        <div class="s-2 mr-2">
+                                            <span>Description</span>
+                                        </div>
+                                        <div class="s-2 rot_object">
+                                            <i class="bi bi-chevron-compact-up pull-right icon-chevron-right"></i>
+                                        </div>
+                                    </div>
+                                    <div class="desc">Error addition. Every 7 bits, one error</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mb-2">
+                        <div class="col">
+                            <div class="card">
+                                <div class="card-header bg-transparent border-success fw-bold">
+                                    <div class="d-flex align-items-center .justify-content-start">
+                                        <div class="s-2 mr-2">
+                                            <i class="bi bi-dash-circle pull-right icon-chevron-right"></i>
+                                        </div>
+                                        <div class="s-2">
+                                            <span>Corrected Text</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <p class="card-text">{{data.error_corrected_text}}</p>
+                                </div>
+                                <div class="card-footer bg-transparent">
+                                    <div class="d-flex align-items-center .justify-content-start">
+                                        <div class="s-2 mr-2">
+                                            <span>Description</span>
+                                        </div>
+                                        <div class="s-2 rot_object">
+                                            <i class="bi bi-chevron-compact-up pull-right icon-chevron-right"></i>
+                                        </div>
+                                    </div>
+                                    <div class="desc">Error correction. Using ready pattern, identifying error in every 7 bits</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mb-2">
+                        <div class="col">
+                            <div class="card">
+                                <div class="card-header bg-transparent border-success fw-bold">
+                                    <div class="d-flex align-items-center .justify-content-start">
+                                        <div class="s-2 mr-2">
+                                            <i class="bi bi-chat-square-text-fill pull-right icon-chevron-right"></i>
+                                        </div>
+                                        <div class="s-2">
+                                            <span>Decoded after errors Text</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <p class="card-text">{{data.decoded_after_error_text|linebreaksbr}}</p>
+                                </div>
+                                <div class="card-footer bg-transparent">
+                                    <div class="d-flex align-items-center .justify-content-start">
+                                        <div class="s-2 mr-2">
+                                            <span>Description</span>
+                                        </div>
+                                        <div class="s-2 rot_object">
+                                            <i class="bi bi-chevron-compact-up pull-right icon-chevron-right"></i>
+                                        </div>
+                                    </div>
+                                    <div class="desc">Decoding of the text with Huffman algorithm</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mb-2">
+                        <div class="col">
+                            <div class="card">
+                                <div class="card-header bg-transparent border-success fw-bold">
+                                    <div class="d-flex align-items-center .justify-content-start">
+                                        <div class="s-2 mr-2">
+                                            <i class="bi bi-chat-square-text pull-right icon-chevron-right"></i>
+                                        </div>
+                                        <div class="s-2">
+                                            <span>Decrypted Text</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <p class="card-text">{{data.decrypted_text|linebreaksbr}}</p>
+                                </div>
+                                <div class="card-footer bg-transparent">
+                                    <div class="d-flex align-items-center .justify-content-start">
+                                        <div class="s-2 mr-2">
+                                            <span>Description</span>
+                                        </div>
+                                        <div class="s-2 rot_object">
+                                            <i class="bi bi-chevron-compact-up pull-right icon-chevron-right"></i>
+                                        </div>
+                                    </div>
+                                    <div class="desc">Decrypted text using RSA</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col">
+                            <div class="card p-2">
+                                <div class="card-header bg-transparent border-success fw-bold">
+                                    <div class="d-flex align-items-center .justify-content-start">
+                                        <div class="s-2 mr-2">
+                                            <i class="bi bi-hash pull-right icon-chevron-right"></i>
+                                        </div>
+                                        <div class="s-2">
+                                            <span>Dictionary Table</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <table class="table table-dark">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Char</th>
+                                            <th scope="col">Code</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for key, value in data.encoded_table.items %}
+                                        <tr>
+                                            <td>{{ key|stringformat:'r' }}</td>
+                                            <td>{{ value }}</td>
+                                        </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card p-2">
+                                <div class="card-header bg-transparent border-success fw-bold">
+                                    <div class="d-flex align-items-center .justify-content-start">
+                                        <div class="s-2 mr-2">
+                                            <i class="bi bi-soundwave pull-right icon-chevron-right"></i>
+                                        </div>
+                                        <div class="s-2">
+                                            <span>Frequency Table</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <table class="table table-dark">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Char</th>
+                                            <th scope="col">Probabilty</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for key, value in data.prob_table.items %}
+                                        <tr>
+                                            <td>{{ key|stringformat:'r' }}</td>
+                                            <td>{{ value }}</td>
+                                        </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+            {% endblock main_content %}
+        </section>
+        {% endblock content %}

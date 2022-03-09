@@ -1,0 +1,209 @@
+        {% extends 'webapp/base.html' %}
+        {% block content %}
+        <!-- Section-->
+        {% block main_content %}
+        <section class="py-5">
+            <div class="container px-4 px-lg-5 mt-5">
+                <div class="container mb-5">
+                    <div class="row row-cols-auto d-flex justify-content-between mb-2">
+                        <div class="col">
+                            <div class="card" style="width: 18rem;">
+                                <div class="card-body">
+                                    <div class="row align-items-center">
+                                        <div class="col-8">
+                                            <h4 class="text-c-green">RSA</h4>
+                                            <h6 class="text-muted m-b-0">Used Algorithm</h6>
+                                        </div>
+                                        <div class="col-4 text-right">
+                                            <i class="bi bi-code"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row row-cols-auto d-flex justify-content-between">
+                          <div class="col-6">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="row align-items-center">
+                                        <div class="col-8">
+                                            <h4 class="text-c-green">(n, e)</h4>
+                                            <h6 class="text-muted m-b-0">Public Key</h6>
+                                        </div>
+                                        <div class="col-4 text-right">
+                                            <i class="bi bi-aspect-ratio"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-footer bg-transparent">
+                                    <div class="d-flex align-items-center .justify-content-start">
+                                        <div class="s-2 mr-2">
+                                            <span>Description</span>
+                                        </div>
+                                        <div class="s-2 rot_object">
+                                            <i class="bi bi-chevron-compact-up pull-right icon-chevron-right"></i>
+                                        </div>
+                                    </div>
+                                    <div class="desc">n = {{data.n}}<br>e = {{data.e}}</div>
+                                </div>
+                            </div>
+                          </div>
+                          <div class="col-6">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="row align-items-center">
+                                        <div class="col-8">
+                                            <h4 class="text-c-green">(Φ(n), d)</h4>
+                                            <h6 class="text-muted m-b-0">Private Key</h6>
+                                        </div>
+                                        <div class="col-4 text-right">
+                                            <i class="bi bi-exclamation-octagon"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-footer bg-transparent">
+                                    <div class="d-flex align-items-center .justify-content-start">
+                                        <div class="s-2 mr-2">
+                                            <span>Description</span>
+                                        </div>
+                                        <div class="s-2 rot_object">
+                                            <i class="bi bi-chevron-compact-up pull-right icon-chevron-right"></i>
+                                        </div>
+                                    </div>
+                                    <div class="desc">Φ(n) = {{data.PHI}}<br>d = {{data.d}}</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="container mb-5">
+                    <div class="row mb-2">
+                        <div class="col">
+                            <div class="card">
+                                <div class="card-header bg-transparent border-success fw-bold">
+                                    <div class="d-flex align-items-center .justify-content-start">
+                                        <div class="s-2 mr-2">
+                                            <i class="bi bi-question-circle pull-right icon-chevron-right"></i>
+                                        </div>
+                                        <div class="s-2">
+                                            <span>RSA Description</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <div class="container-fluid">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <p class="card-text"><span class='fw-bold'>Generating Public</span> Key:<br>Select two prime no's: P, Q<br>n = pxq<br> We also need a small exponent say e. Public key (n, e)</p>
+                                                    </div>
+                                                    <div class="col-md-12">
+                                                        <p class="card-text"><span class="fw-bold">Generating Private</span> Key:<br>We need to calculate Φ(n):(P-1)(Q-1)<br>d = (k*Φ(n) + 1) / e<br>Private key (Φ(n), d)</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p class="card-text">
+                                                Convert letters to numbers : str->byte_msg<br>
+                                                Our Encrypted Data c = byte_msg<sup>e</sup> mod n.
+                                                Say our Encrypted Data comes out to say 15454
+                                                <br>
+                                                Now we will decrypt 15454 : <br>
+                                                <br>    
+                                                Decrypted Data = c<sup>d</sup> mod n. <br>
+                                                Now our Encrypted Data comes out to be msg_byte<br>
+                                                Finally convert again msg_byte->str.<br>
+                                            </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mb-2">
+                        <div class="col">
+                            <div class="card">
+                                <div class="card-header bg-transparent border-success fw-bold">
+                                    <div class="d-flex align-items-center .justify-content-start">
+                                        <div class="s-2 mr-2">
+                                            <i class="bi bi-chat-square-text pull-right icon-chevron-right"></i>
+                                        </div>
+                                        <div class="s-2">
+                                            <span>Original Text</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <p class="card-text">{{data.original_text|linebreaksbr}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mb-2">
+                        <div class="col">
+                            <div class="card">
+                                <div class="card-header bg-transparent border-success fw-bold">
+                                    <div class="d-flex align-items-center .justify-content-start">
+                                        <div class="s-2 mr-2">
+                                            <i class="bi bi-file-lock pull-right icon-chevron-right"></i>
+                                        </div>
+                                        <div class="s-2">
+                                            <span>Encrypted Text</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <p class="card-text">{{data.encrypted_text}}</p>
+                                </div>
+                                <div class="card-footer bg-transparent">
+                                    <div class="d-flex align-items-center .justify-content-start">
+                                        <div class="s-2 mr-2">
+                                            <span>Description</span>
+                                        </div>
+                                        <div class="s-2 rot_object">
+                                            <i class="bi bi-chevron-compact-up pull-right icon-chevron-right"></i>
+                                        </div>
+                                    </div>
+                                    <div class="desc">Encrypted Data c = msg<sup>{{ data.e }}</sup> mod {{ data.n }}</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mb-2">
+                        <div class="col">
+                            <div class="card">
+                                <div class="card-header bg-transparent border-success fw-bold">
+                                    <div class="d-flex align-items-center .justify-content-start">
+                                        <div class="s-2 mr-2">
+                                            <i class="bi bi-file-lock-fill pull-right icon-chevron-right"></i>
+                                        </div>
+                                        <div class="s-2">
+                                            <span>Decrypted Text</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <p class="card-text">{{data.decrypted_text}}</p>
+                                </div>
+                                <div class="card-footer bg-transparent">
+                                    <div class="d-flex align-items-center .justify-content-start">
+                                        <div class="s-2 mr-2">
+                                            <span>Description</span>
+                                        </div>
+                                        <div class="s-2 rot_object">
+                                            <i class="bi bi-chevron-compact-up pull-right icon-chevron-right"></i>
+                                        </div>
+                                    </div>
+                                    <div class="desc">Decrypted Data = c<sup>{{data.d}}</sup> mod {{ data.n }}</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endblock main_content %}
+        </section>
+        {% endblock content %}

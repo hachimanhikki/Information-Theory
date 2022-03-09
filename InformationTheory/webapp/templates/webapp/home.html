@@ -1,0 +1,32 @@
+        {% extends 'webapp/base.html' %}
+        {% block content %}
+        <!-- Section-->
+        <section class="py-5">
+            <div class="container px-4 px-lg-5 mt-5">
+                {% block first_content %}
+                <div class="group">
+                    <h1>Huffman Encoding</h1>
+                    <form id="myForm" method="POST" action="/output1">
+                        {% csrf_token %}
+                        <div class="input-group">
+                            <textarea class="form-control custom-control" rows="3" name="text" required></textarea>
+                            <button type="submit" class="btn btn-primary">Encode</button>
+                        </div>
+                    </form>
+                </div>
+                {% endblock first_content %}
+                {% block second_content %}
+                <div class="group">
+                    <h1>RSA Algorithm</h1>
+                    <form id="mySecondForm" method="POST" action="/output2">
+                        {% csrf_token %}
+                        <div class="input-group">
+                            <textarea class="form-control custom-control" rows="3" name="text" required></textarea>
+                            <button type="submit" class="btn btn-primary">Encrypt</button>
+                        </div>
+                    </form>
+                </div>
+                {% endblock second_content %}
+            </div>
+        </section>
+        {% endblock content %}
